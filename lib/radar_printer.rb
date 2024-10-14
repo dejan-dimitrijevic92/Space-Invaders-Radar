@@ -2,16 +2,16 @@ require 'rainbow'
 require 'pry'
 
 class RadarPrinter
-  def initialize(radar, data_hits)
+  def initialize(radar, radar_object_hits)
     @radar = radar
-    @data_hits = data_hits
+    @radar_object_hits = radar_object_hits
   end
 
   def print
     radar_copy = deep_copy(@radar.pattern)
 
-    @data_hits.each do |hit|
-      apply_invader_hit(radar_copy, hit)
+    @radar_object_hits.each do |hit|
+      apply_hit(radar_copy, hit)
     end
 
     puts radar_copy.map { |row| row.join }.join("\n")
@@ -19,9 +19,7 @@ class RadarPrinter
 
   private
 
-  def apply_invader_hit(radar_copy, hit)
-    # TODO: remove debugger
-    # binding.pry
+  def apply_hit(radar_copy, hit)
     radar_object = hit[:radar_object]
 
     (0...radar_object.height).each do |i|
