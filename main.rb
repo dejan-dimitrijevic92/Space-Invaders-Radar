@@ -6,7 +6,7 @@ require_relative './lib/errors/invalid_radar_error'
 require_relative './lib/errors/invalid_invader_error'
 
 begin
-  radar_file_path = 'data/radar/radar_image2.txt'
+  radar_file_path = 'data/radar/radar_image.txt'
   invader_file_paths = ['data/invaders/invader1.txt', 'data/invaders/invader2.txt']
   noice_tollerance = 0.2
   
