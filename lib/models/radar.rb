@@ -8,16 +8,19 @@ class Radar
   end
 
   def extract_window(x, y, window_width, window_height)
-    window = Array.new(window_height) { Array.new(window_width) }
-    
-    (0...window_height).each do |dy|
-      (0...window_width).each do |dx|
-        radar_y = y + dy
-        radar_x = x + dx
-        # Check if within bounds of the radar
-        if radar_y.between?(0, height - 1) && radar_x.between?(0, width - 1)
-          window[dy][dx] = pattern[radar_y][radar_x]
-        end
+    # Define limits for boundary checking
+    x_start = [x, 0].max
+    y_start = [y, 0].max
+    x_end = [x + window_width - 1, width - 1].min
+    y_end = [y + window_height - 1, height - 1].min
+
+    # Initialize window with nil values
+    window = Array.new(window_height) { Array.new(window_width, nil) }
+
+    # Copy valid radar values into the window
+    (y_start..y_end).each_with_index do |radar_y, dy|
+      (x_start..x_end).each_with_index do |radar_x, dx|
+        window[dy + (y_start - y)][dx + (x_start - x)] = pattern[radar_y][radar_x]
       end
     end
 
