@@ -1,4 +1,3 @@
-require 'rspec'
 require_relative '../../lib/services/file_service'
 require_relative '../../lib/errors/file_not_found_error'
 

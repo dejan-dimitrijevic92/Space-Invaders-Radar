@@ -3,7 +3,7 @@ class Validator
     raise NotImplementedError, 'Validator must implement validate! method'
   end
 
-  protected
+  private
 
   def nil_or_empty?(string)
     return string.nil? || string.strip.empty?
@@ -15,6 +15,6 @@ class Validator
   end
 
   def contains_valid_characters?(string)
-    return string.match?(/^[\-o\s]+$/)
+    return string.match?(/\A[-o\s]*\z/) 
   end
 end
