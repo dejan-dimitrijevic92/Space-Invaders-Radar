@@ -1,5 +1,4 @@
 require_relative '../../lib/validators/radar_validator'
-require_relative '../../lib/errors/invalid_radar_error'
 
 RSpec.describe RadarValidator do
   let(:validator) { RadarValidator.new }

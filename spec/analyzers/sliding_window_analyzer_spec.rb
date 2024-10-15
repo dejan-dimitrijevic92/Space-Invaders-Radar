@@ -1,7 +1,4 @@
 require_relative '../../lib/analyzers/sliding_window_analyzer'
-require_relative '../../lib/models/radar'
-require_relative '../../lib/models/radar_object'
-require_relative '../../lib/errors/invalid_radar_error'
 
 RSpec.describe SlidingWindowAnalyzer do
   let(:radar) do

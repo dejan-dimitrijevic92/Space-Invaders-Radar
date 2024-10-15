@@ -1,4 +1,3 @@
-# invader_spec.rb
 require_relative '../../lib/models/invader'
 
 RSpec.describe Invader do

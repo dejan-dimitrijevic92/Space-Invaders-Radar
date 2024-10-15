@@ -1,5 +1,4 @@
 require_relative '../../lib/validators/invader_validator'
-require_relative '../../lib/errors/invalid_invader_error'
 
 RSpec.describe InvaderValidator do
   let(:validator) { InvaderValidator.new }
